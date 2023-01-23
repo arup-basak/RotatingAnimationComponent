@@ -1,0 +1,58 @@
+:root {
+    --border-width: 6px;
+    --circle-diameter: 600px;
+    --cicle-color: #fff
+}
+
+body {
+    background-color: rgb(15, 13, 32);
+}
+
+.container {
+    overflow: none;
+    margin: auto;
+    width: fit-content;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    justify-content: center;
+}
+
+.ring {
+    border-color: var(--cicle-color);
+    border-style: solid;
+    border-width: 0;
+    width: calc(var(--circle-diameter)/2);
+    aspect-ratio: 1/1;
+    border-radius: 50%;
+    position: relative;
+    animation: loadingRotate 1.5s linear infinite;
+}
+
+.ring:nth-child(1) {
+    border-right-width: var(--border-width);
+    top: 15%;
+    left: 15%;
+}
+
+.ring:nth-child(2) {
+    border-bottom-width: var(--border-width);
+    top: 15%;
+    right: 15%;
+}
+
+.ring:nth-child(3) {
+    border-left-width: var(--border-width);
+    grid-column-start: 1;
+    grid-column-end: 3; 
+    justify-self: center;
+    bottom: 15%;
+}
+
+@keyframes loadingRotate {
+    0% {
+        rotate: 0deg;
+    }
+    100% {
+        rotate: 360deg;
+    }
+}
